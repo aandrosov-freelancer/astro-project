@@ -1,5 +1,18 @@
 ---
+const pageTitle = 'About Me';
 
+const identity = {
+    firstName: 'Anton',
+    country: 'Russia',
+    occupation: 'Flutter Developer',
+    hobbies: ["Swimming", "Delicious Food", "Programming", "Reading books"]
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'TypeScript', 'Python', 'Java', 'C++', 'C#', 'Ruby', 'PHP', 'Go', 'Rust', 'Swift', 'Kotlin', 'Dart', 'TypeScript', 'Python', 'Java', 'C++', 'C#', 'Ruby', 'PHP', 'Go', 'Rust', 'Swift', 'Kotlin', 'Dart']
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -9,16 +22,33 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
 		<a href="/about">About</a>
 
-		<h1>About Me</h1>
+		<h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
         <p>I am working through Astro's intoductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
         <p>This site will update as I complete more of the tutorial. So check back soon!</p>
+
+        <br>
+        <p>Here are a few facts about Me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I'm from {identity.country}.</li>
+            <li>I work as a {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 && <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>}
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+            {skills.map(skill => <li>{skill}</li>) }
+        </ul>
+
+        {happy && <p>I'm happy to lear Astro!</p>}
+        {finished && <p>I've finished this tutorial!</p>}
+        {goal === 3 && <p>I've reached my goal!</p>}
 	</body>
 </html>
